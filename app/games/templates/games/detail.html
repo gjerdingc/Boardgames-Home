@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} {{game}} {% endblock %}
+
+{% block content %}
+    <h1>{{game}}</h1>
+
+    <ul>
+        <li>
+            Game played: {{game.boardgame}}
+        </li>
+        <li>
+            Date played: {{game.date}}
+        </li>
+        <li>
+            Players: {{game.players.all|join:", "}}
+        </li>
+        <li>
+            Winner: {{ game.winner }}
+        </li>
+        <li>
+            Duration: {{game.duration}} minutes
+        </li>
+    </ul>
+
+
+    <a href="{% url 'welcome' %}">Home</a>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} {{person}} {% endblock %}
+
+{% block content %}
+    <h1>{{person}}</h1>
+
+    <ul>
+        <li>
+            Games played {{count}}
+        </li>
+    </ul>
+
+
+    <a href="{% url 'welcome' %}">Home</a>
+{% endblock %}

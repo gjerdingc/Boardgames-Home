@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %} {{boardgame.name}} {% endblock %}
+
+{% block content %}
+<div class="center">
+    <h1>{{boardgame.name}}</h1>
+
+    <img style="height: 450px" src="{% static 'boardgames/'|add:boardgame.image_name|add:'.jpg' %}">
+
+    <ul>
+        <li>
+            Minimum players: {{boardgame.player_count_min}}
+        </li>
+        <li>
+            Maximum players: {{boardgame.player_count_max}}
+        </li>
+        <li>
+            Release Year: {{boardgame.release_year}}
+        </li>
+        <li>
+            Complexity: {{boardgame.complexity}} / 5
+        </li>
+        <li>
+            Duration: {{boardgame.duration}} minutes
+        </li>
+        <li>
+            Boardgame Geek: <a href="{{boardgame.bgg_link}}">Link</a>
+        </li>
+    </ul>
+
+
+    <a href="{% url 'welcome' %}">Home</a>
+</div>
+{% endblock %}

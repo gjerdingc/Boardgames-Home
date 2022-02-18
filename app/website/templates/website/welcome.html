@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}Games played{% endblock %}
+
+{% block content %}
+
+<!-- Boardgames table --> 
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Boardgames</th>
+            <th scope="col">Times played</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        {% for boardgame in boardgames %}
+            <tr>   
+                <td>
+                    <a href="{% url 'detail' boardgame.id %}">
+                        {{ boardgame }}
+                    </a>
+                </td>
+                <td>
+                    {{ boardgame.times_played }}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+    
+<!-- Players table --> 
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Player</th>
+            <th scope="col">Times played</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        {% for player in players %}
+            <tr>   
+                <td>
+                    <a href="{% url 'player' player.id %}">
+                        {{ player }}
+                    </a>
+                </td>
+                <td>
+                    {{ player.times_played }}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<!-- Games played table --> 
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Games played</th>
+            <th scope="col">Date played</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        {% for game in games %}
+            <tr>   
+                <td>
+                    <a href="{% url 'games-detail' game.id %}">
+                        {{ game.boardgame }}
+                    </a>
+                </td>
+                <td>
+                    {{ game.date }}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}

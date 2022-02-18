@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}New Game{% endblock %}
+
+{% block content %}
+<h1>Add a new game</h1>
+<form method="post">
+    <table>
+        {{ form }} <!--Django generates HTML for this form based on our modelclass-->
+    </table>
+    {% csrf_token %}
+    <button type="submit">Create</button>
+</form>
+{% endblock %}
