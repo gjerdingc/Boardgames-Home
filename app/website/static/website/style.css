@@ -22,7 +22,7 @@
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #04AA6D;
+  background-color: #1abc9c;
   color: white;
 }
 
@@ -34,12 +34,21 @@
   font-size: 30px;
 }
 
-table {
+/*table {
   table-layout: fixed;
+}*/
+
+.center-left {
+  margin-left: 100px;
+  width: 70%;
 }
 
-.center {
-  margin: auto;
-  width: 50%;
-  padding: 10px;
+.table-image {
+  td, th {
+    vertical-align: middle;
+  }
+}
+
+.w-25 {
+  width: 25%!important;
 }

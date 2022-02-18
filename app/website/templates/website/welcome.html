@@ -4,83 +4,35 @@
 
 {% block content %}
 
+<div>
 <!-- Boardgames table --> 
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">Boardgames</th>
-            <th scope="col">Times played</th>
-        </tr>
-    </thead>
-    
-    <tbody>
-        {% for boardgame in boardgames %}
-            <tr>   
-                <td>
-                    <a href="{% url 'detail' boardgame.id %}">
-                        {{ boardgame }}
-                    </a>
-                </td>
-                <td>
-                    {{ boardgame.times_played }}
-                </td>
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col" class="col-1">Image</th>
+                <th scope="col" class="col-3">Boardgames</th>
+                <th scope="col">Times played</th>
             </tr>
-        {% endfor %}
-    </tbody>
-</table>
-    
-<!-- Players table --> 
-
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">Player</th>
-            <th scope="col">Times played</th>
-        </tr>
-    </thead>
-    
-    <tbody>
-        {% for player in players %}
-            <tr>   
-                <td>
-                    <a href="{% url 'player' player.id %}">
-                        {{ player }}
-                    </a>
-                </td>
-                <td>
-                    {{ player.times_played }}
-                </td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
+        </thead>
 
 
-<!-- Games played table --> 
-
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">Games played</th>
-            <th scope="col">Date played</th>
-        </tr>
-    </thead>
-    
-    <tbody>
-        {% for game in games %}
-            <tr>   
-                <td>
-                    <a href="{% url 'games-detail' game.id %}">
-                        {{ game.boardgame }}
-                    </a>
-                </td>
-                <td>
-                    {{ game.date }}
-                </td>
-            </tr>
-        {% endfor %}
-    </tbody>
-</table>
-
-
+        <tbody>
+            {% for boardgame in boardgames %}
+                <tr>
+                    <td>
+                        <img style="height: 100px" src= {{ boardgame.image_name }}>
+                    </td>
+                    <td>
+                        <a href="{% url 'detail' boardgame.id %}">
+                            {{ boardgame }}
+                        </a>
+                    </td>
+                    <td>
+                        {{ boardgame.times_played }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}

@@ -11,6 +11,7 @@ def welcome(request):
 
     ## Add counts of times played based on data from games table
     for boardgame in Boardgame.objects.all():
+        boardgame = AddImageName(boardgame)
         times_played = Game.objects.filter(boardgame__name = boardgame.name).count()
         boardgame.times_played = times_played
         boardgames_list.append(boardgame)
@@ -28,3 +29,11 @@ def welcome(request):
         })
 
     
+
+## Functions
+
+def AddImageName(boardgame):
+    boardgame.image_name = boardgame.name.replace(':', '').replace(' ', '-')
+    boardgame.image_name = '/static/boardgames/' + boardgame.image_name + '.jpg'
+    
+    return boardgame

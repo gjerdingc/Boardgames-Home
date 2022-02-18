@@ -30,9 +30,33 @@ def player(request, id):
 
     queryset = Game.objects.filter(players__name = person).count()
 
-    return render(request, "boardgames/player.html", {"game": game, "person": person, "count": queryset})
+    return render(request, "boardgames/player.html", {
+        "game": game, "person": person, "count": queryset
+        })
+
+def gamesplayed(request):
+    
+    return render(request, "boardgames/gamesplayed.html", {
+        "games": Game.objects.all(), 
+        })
+
+def players(request):
+
+    players_list = []
+
+    for player in Player.objects.all():
+        times_played = Game.objects.filter(players__name = player).count()
+        player.times_played = times_played
+        players_list.append(player)
+    
+    return render(request, "boardgames/players.html", {
+        "players": players_list, 
+        })
 
 
+
+
+## Functions
 
 def AddImageName(boardgame):
     boardgame.image_name = boardgame.name.replace(':', '').replace(' ', '-')

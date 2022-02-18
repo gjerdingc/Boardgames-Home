@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Games played{% endblock %}
+
+{% block content %}
+   
+<!-- Players table --> 
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Player</th>
+            <th scope="col">Times played</th>
+        </tr>
+    </thead>
+    
+    <tbody>
+        {% for player in players %}
+            <tr>   
+                <td>
+                    <a href="{% url 'player' player.id %}">
+                        {{ player }}
+                    </a>
+                </td>
+                <td>
+                    {{ player.times_played }}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

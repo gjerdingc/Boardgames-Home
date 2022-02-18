@@ -4,7 +4,7 @@
 {% block title %} {{boardgame.name}} {% endblock %}
 
 {% block content %}
-<div class="center">
+<div class="center-left">
     <h1>{{boardgame.name}}</h1>
 
     <img style="height: 450px" src="{% static 'boardgames/'|add:boardgame.image_name|add:'.jpg' %}">
@@ -30,7 +30,5 @@
         </li>
     </ul>
 
-
-    <a href="{% url 'welcome' %}">Home</a>
 </div>
 {% endblock %}
