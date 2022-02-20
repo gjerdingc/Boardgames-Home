@@ -11,6 +11,8 @@
             <tr>
                 <th scope="col" class="col-1">Image</th>
                 <th scope="col" class="col-3">Boardgames</th>
+                <th scope="col" class="col-1">Complexity</th>
+                <th scope="col" class="col-1">Duration</th>
                 <th scope="col">Times played</th>
             </tr>
         </thead>
@@ -26,6 +28,16 @@
                         <a href="{% url 'detail' boardgame.id %}">
                             {{ boardgame }}
                         </a>
+                    </td>
+                    <td>
+                        <div style="font-weight: bold;
+                        {% if boardgame.complexity < 2.5 %} color: Green
+                        {% elif boardgame.complexity > 2.5 and boardgame.complexity < 3.5 %} color: Orange
+                        {% elif boardgame.complexity > 3.5 %} color: Red
+                        {% endif %}">{{ boardgame.complexity }}</div>
+                    </td>
+                    <td>
+                        {{ boardgame.duration }}
                     </td>
                     <td>
                         {{ boardgame.times_played }}
