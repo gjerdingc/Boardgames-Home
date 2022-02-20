@@ -27,6 +27,7 @@ class Game(models.Model):
     boardgame = models.ForeignKey(Boardgame, on_delete=models.CASCADE)
     players = models.ManyToManyField(Player, related_name="players")
     winner = models.ForeignKey(Player, on_delete=models.CASCADE)
+    winner_points = models.IntegerField()
     duration = models.IntegerField(default=1)
 
     def __str__(self):
