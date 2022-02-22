@@ -11,6 +11,7 @@
         <tr>
             <th scope="col">Games played</th>
             <th scope="col">Date played</th>
+            <th scope="col">Winner</th>
         </tr>
     </thead>
     
@@ -24,6 +25,9 @@
                 </td>
                 <td>
                     {{ game.date }}
+                </td>
+                <td>
+                    {{ game.winner }}
                 </td>
             </tr>
         {% endfor %}
