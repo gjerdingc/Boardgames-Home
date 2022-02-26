@@ -34,7 +34,10 @@ def player(request, id):
     gameswon = Game.objects.filter(winner = person).count()
     games = Game.objects.filter(players__name = person)
 
-    winpercentage = (gameswon / gamesplayed)*100
+    if gamesplayed > 0:
+        winpercentage = (gameswon / gamesplayed)*100
+    else:
+        winpercentage = 0
 
     return render(request, "boardgames/player.html", {
         "games": games, 
