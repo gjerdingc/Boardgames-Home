@@ -28,7 +28,7 @@ class Game(models.Model):
     players = models.ManyToManyField(Player, related_name="players")
     winner = models.ForeignKey(Player, on_delete=models.CASCADE)
     winner_points = models.IntegerField()
-    duration = models.IntegerField(default=1)
+    duration = models.IntegerField(default=60)
 
     def __str__(self):
         return f"{self.boardgame} at {self.date}"

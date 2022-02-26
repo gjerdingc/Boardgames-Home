@@ -2,8 +2,9 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.forms import modelform_factory
-from boardgames.models import Boardgame, Game, Player
+from .models import Boardgame, Game, Player
 from django.shortcuts import redirect, render, get_object_or_404
+from .forms import GameForm
 
 
 def detail(request, id):
@@ -11,7 +12,7 @@ def detail(request, id):
     return render(request, "boardgames/detail.html", {"boardgame": boardgame})
 
 
-GameForm = modelform_factory(Game, exclude=[])
+#GameForm = modelform_factory(Game, exclude=[])
 
 def new(request):
     if request.method == "POST":
@@ -23,6 +24,8 @@ def new(request):
     else:   
         form = GameForm()
     return render(request, "boardgames/new.html", {"form": form})
+
+
 
 def player(request, id):
     person = Player.objects.get(pk=id)
