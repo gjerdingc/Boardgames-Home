@@ -4,12 +4,64 @@
 {% block title %} {{person}} {% endblock %}
 
 {% block content %}
+
+
+<div class="container">
     <h1>{{person}}</h1>
 
-    <ul>
-        <li>
-            Games played {{count}}
-        </li>
-    </ul>
+    <div class="row">
+      <div class="col">
+        Games played
+      </div>
+      <div class="col">
+        {{gamesplayed}}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        Games won
+      </div>
+      <div class="col">
+        {{gameswon}}
+      </div>
+    </div>
+    <div class="row">
+        <div class="col">
+          Win Percentage
+        </div>
+        <div class="col">
+          {{winpercentage}}%
+        </div>
+      </div>
+
+
+    <table class="table playertable" style="margin-top: 15px;">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Games Played</th>
+                <th scope="col">Winner</th>
+                <th scope="col">Date</th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            {% for game in games %}
+                <tr>   
+                    <td>
+                        <a href="{% url 'games-detail' game.id %}">
+                            {{ game.boardgame }}
+                        </a>
+                    </td>
+                    <td>
+                        {{ game.winner }}
+                    </td>
+                    <td>
+                        {{ game.date }}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 
 {% endblock %}

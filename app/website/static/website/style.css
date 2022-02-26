@@ -46,3 +46,21 @@
 .w-25 {
   width: 25%!important;
 }
+
+.pad-left {
+  padding-left: 2em;
+}
+
+.row > div {
+  background: rgb(248, 246, 246);
+  border: 1px solid grey;
+}
+
+.row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.playertable {
+  border: 1px solid grey;
+}

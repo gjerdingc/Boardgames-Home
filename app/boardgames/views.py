@@ -29,12 +29,19 @@ def new(request):
 
 def player(request, id):
     person = Player.objects.get(pk=id)
-    game = Game.objects.all()
 
-    queryset = Game.objects.filter(players__name = person).count()
+    gamesplayed = Game.objects.filter(players__name = person).count()
+    gameswon = Game.objects.filter(winner = person).count()
+    games = Game.objects.filter(players__name = person)
+
+    winpercentage = (gameswon / gamesplayed)*100
 
     return render(request, "boardgames/player.html", {
-        "game": game, "person": person, "count": queryset
+        "games": games, 
+        "person": person, 
+        "gamesplayed": gamesplayed,
+        "gameswon": gameswon,
+        "winpercentage": winpercentage,
         })
 
 def gamesplayed(request):
