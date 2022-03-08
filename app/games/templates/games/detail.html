@@ -4,26 +4,49 @@
 {% block title %} {{game}} {% endblock %}
 
 {% block content %}
-    <h1>{{game}}</h1>
 
-    <ul>
-        <li>
-            Game played: {{game.boardgame}}
-        </li>
-        <li>
-            Date played: {{game.date}}
-        </li>
-        <li>
-            Players: {{game.players.all|join:", "}}
-        </li>
-        <li>
-            Winner: {{ game.winner }}
-        </li>
-        <li>
-            Duration: {{game.duration}} minutes
-        </li>
-    </ul>
+    <div style="float: left; min-width: 700px; margin-left: 2%; margin-top: 2%; font-weight: bold;">
+        <h1>{{game}}</h1>
+        <div class="row">
+            <div class="col-3">
+                Game Played
+            </div>
+            <div class="col">
+                {{game.boardgame}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                Date Played
+            </div>
+            <div class="col">
+                {{game.date}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                Players
+            </div>
+            <div class="col test">
+                {{game.players.all|join:", "}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                Winner
+            </div>
+            <div class="col green">
+                {{ game.winner }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                Duration
+            </div>
+            <div class="col">
+                {{game.duration}} minutes
+            </div>
+        </div>
+    </div>
 
-
-    <a href="{% url 'welcome' %}">Home</a>
 {% endblock %}

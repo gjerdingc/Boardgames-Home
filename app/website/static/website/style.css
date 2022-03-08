@@ -39,12 +39,16 @@
   border: 0;
 }
 
-.table {
-  
+.test {
+  display:inline;
 }
 
-body {
-  
+.green {
+  color: rgb(18, 211, 18)
+}
+
+h1 {
+  font-family: monospace;
 }
 
 image {
