@@ -4,31 +4,51 @@
 {% block title %} {{boardgame.name}} {% endblock %}
 
 {% block content %}
-<div class="center-left">
-    <h1>{{boardgame.name}}</h1>
+<div style="margin-left: 2%; margin-top: 2%;">
+    <h1 style="font-family: monospace; font-size: 3em;">{{boardgame.name}}</h1>
 
-    <img style="height: 450px" src="{% static 'boardgames/'|add:boardgame.image_name|add:'.jpg' %}">
-
-    <ul>
-        <li>
-            Minimum players: {{boardgame.player_count_min}}
-        </li>
-        <li>
-            Maximum players: {{boardgame.player_count_max}}
-        </li>
-        <li>
-            Release Year: {{boardgame.release_year}}
-        </li>
-        <li>
-            Complexity: {{boardgame.complexity}} / 5
-        </li>
-        <li>
-            Duration: {{boardgame.duration}} minutes
-        </li>
-        <li>
-            Boardgame Geek: <a href="{{boardgame.bgg_link}}">Link</a>
-        </li>
-    </ul>
-
+    <div style="float: left; font-weight: bold;">
+        <img style="min-width: 350px; max-height: 550px; padding-bottom: 15px;" src="{% static 'boardgames/'|add:boardgame.image_name|add:'.jpg' %}">
+        <div class="row">
+            <div class="col">
+                Players
+            </div>
+            <div class="col">
+                {{boardgame.player_count_min}} - {{boardgame.player_count_max}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                Release Year
+            </div>
+            <div class="col">
+                {{boardgame.release_year}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                Complexity
+            </div>
+            <div class="col">
+                {{boardgame.complexity}} / 5
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                Duration
+            </div>
+            <div class="col">
+                {{boardgame.duration}} minutes
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                BoardgameGeek
+            </div>
+            <div class="col">
+                <a href="{{boardgame.bgg_link}}">Link</a>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

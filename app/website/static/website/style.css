@@ -47,6 +47,12 @@ body {
   
 }
 
+image {
+  min-width: 300px; 
+  max-height: 450px; 
+  padding-bottom: 15px;
+}
+
 .center-left {
   margin-left: 100px;
   width: 70%;
