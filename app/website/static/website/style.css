@@ -3,13 +3,12 @@
   background-color: #333;
   overflow: hidden;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
   .topnav {
-    display: inline-flex;
+    width: auto;
   }
   body {
-    display: inline-flex;
-    flex-direction: column;
+    width: fit-content;
   }
 }
 
@@ -43,13 +42,17 @@
   font-size: 30px;
 }
 
-.table {
-  width: 100vw;
+.table-welcome {
+  /*width: 100vw;*/
   border: 0;
 }
 
+.table {
+  
+}
+
 body {
-  min-width: 100vw;
+  
 }
 
 .center-left {
