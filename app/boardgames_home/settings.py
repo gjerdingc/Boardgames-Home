@@ -29,7 +29,7 @@ SECRET_KEY = env('DJANGO_SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = ['.brettspill.net', 'boardgames', 'localhost', '127.0.0.1', '10.0.0.15']
-CSRF_TRUSTED_ORIGINS = ['http://*.brettspill.net', 'http://*.127.0.0.1', '10.0.0.15']
+CSRF_TRUSTED_ORIGINS = ['http://*.brettspill.net', 'http://*.127.0.0.1', 'http://10.0.0.15']
 
 
 # Application definition
